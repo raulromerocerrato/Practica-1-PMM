@@ -2,7 +2,6 @@ import 'cotxe.dart';
 import 'patinet.dart';
 import 'user.dart';
 import 'vehicle.dart';
-import 'gpslocation.dart';
 
 void main() {
   
@@ -43,4 +42,12 @@ void main() {
   patinet.actualitzarUbicacio(15.86, 20.42);
   var (lat, lng) = patinet.obtenirCoordenades();
   print('Nova ubicació del patinet ${patinet.id}: lat $lat, lng $lng');
+
+  // 4. Maneig d'errors
+  try {
+    usuari.recarregarSaldo(-10);
+    print('Saldo recarregat correctament');
+  } on ArgumentError catch (e) {
+    print('Error en recarregar saldo: ${e.message}');
+  }
 }
