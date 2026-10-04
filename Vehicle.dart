@@ -2,17 +2,17 @@ import 'GPSLocation.dart';
 
 abstract class Vehicle with GPSLocation {
     String id;
-    int bateriaercentatge;
+    int bateriaPercentatge;
     bool enUs;
     double preuPerMinut;
 
-    Vehicle({required this.id, required this.bateriaercentatge, this.enUs = false, required this.preuPerMinut});
+    Vehicle({required this.id, required this.bateriaPercentatge, this.enUs = false, required this.preuPerMinut});
 
-    String estatBateria() => switch (bateriaercentatge) {
+    String estatBateria() => switch (bateriaPercentatge) {
         >= 80 => 'Alta',
         >= 20 => 'Mitjana',
-        _ => 'Crítica (Requere càrrega)',
+        _ => 'Crítica (Requereix càrrega)',
     };
 
-    double calcularCost (int minuts);
+    double calcularCostReserva (int minuts);
 }
