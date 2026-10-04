@@ -12,4 +12,18 @@ void main() {
     Cotxe(id: 'C1', bateriaPercentatge: 90, preuPerMinut: 0.5, places: 4, requereixLlicencia: true, enUs: false),
     Cotxe(id: 'C2', bateriaPercentatge: 15, preuPerMinut: 0.6, places: 5, requereixLlicencia: true, enUs: true),
   ];
+
+  Vehicle mesBateria = flota.reduce(
+    (a, b) => a.bateriaPercentatge > b.bateriaPercentatge ? a : b,
+  );
+  print('Vehicle amb més bateria: ${mesBateria.id} amb ${mesBateria.bateriaPercentatge}%');
+
+  var ordenada = [...flota]
+    ..sort((a, b) => b.bateriaPercentatge.compareTo(a.bateriaPercentatge));
+  print('Més bateria amb sort: ${ordenada.first.id}');
+
+  List<Vehicle> vehiclesDisponibles = flota
+    .where((vehicle) => !vehicle.enUs)
+    .toList();
+  print('Vehicles disponibles: ${vehiclesDisponibles.map((Vehicle) => Vehicle.id).join(', ')}');
 }
