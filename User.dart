@@ -8,7 +8,7 @@ class User {
 
     User(this._id, this._nomComplet, this._saldo, this.correu, {this.esVIP = false});
     User.nou({required String id, required String nom, required String correu})
-      : this(id: id, nomComplet: nom, saldo: 0.0, correu: correu);
+      : this(id, nom, 0.0, correu);
 
     get id => _id;
     get saldo => _saldo;
