@@ -8,12 +8,12 @@ class Patinet extends Vehicle {
 
     @override
     double calcularCostReserva(int minuts, {User? usuari}) {
-        double cost = minuts * preuPerMinut;
+      double cost = minuts * preuPerMinut;
 
-        if (usuari?.esVIP == true) {
-            cost = cost * 0.9;
-        }
+      if (usuari?.esVIP == true) {
+        cost = cost * 0.9;
+      }
 
-        return cost;
+      return cost;
     }
 }
